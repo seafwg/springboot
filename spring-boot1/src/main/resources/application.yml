@@ -1,0 +1,36 @@
+# dataSource:
+jdbc:
+  driverClassName: com.mysql.jdbc.Driver
+  url: mysql://localhost:3306/spring_test
+  username: root
+  password: root
+
+# 数据库连接池：
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: mysql://localhost:3306/spring_test
+    username: root
+    password: root
+
+# 映射端口：
+server:
+  port: 80
+
+# logging日志：
+logging:
+  level:
+    com.seafwg: debug
+    org.springframework: info
+
+# mybatis配置
+mybatis:
+  # 实体类别名包路径：
+  type-aliases-package: com.seafwg.pojo
+  # 映射文件路径：没有配置mapper接口扫描包，添加注解有两种方法：
+  # ①需要给每一个Mapper接口添加 @Mapper注解就能被识别。
+  # ②可以不加注解，而是在启动类上添加扫描包注解(推荐)：@MapperScan("com.seafwg.mapper")
+  # mapper-locations: classpath:mappers/*.xml
+  configuration:
+    # 控制台输出执行的sql
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
